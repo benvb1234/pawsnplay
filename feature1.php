@@ -1,8 +1,5 @@
 <?php require_once('config.php'); ?>
-<!-- TCSS 445 : Winter 2021
-Author: Ben Valdebenito
-This file creates the menu option for project and output certan information about given options.
--->
+<!-- TCSS 445 : Autumn 2020 -->
 <!-- Assignment 4 Template -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,39 +15,31 @@ This file creates the menu option for project and output certan information abou
         <!-- START -- Add HTML code for the top menu section (navigation bar) -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">assign4</a>
+                <a class="navbar-brand" href="#">PawsN'Play</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="employee.php">Employee</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="department.php">Department</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="project.php">Project</a>
-                        </li>
-<!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </li>
--->
+                <ul class="navbar-nav mr-auto"> 
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="home.php">Home 
+                            <span class="sr-only">(current)</span> 
+                        </a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link active" href="feature1.php">Feature 1</a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="feature2.php">Feature 2</a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="feature3.php">Feature 3</a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="signup.php">Sign Up!</a> 
+                    </li>
+                </ul>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-sm-2" type="text" placeholder="Search">
@@ -62,10 +51,10 @@ This file creates the menu option for project and output certan information abou
         <!-- END -- Add HTML code for the top menu section (navigation bar) -->
 
         <div class="jumbotron">
-            <p class="lead">Select a department's name</p>
+            <p class="lead">Select an employee's name</p>
             <hr class="my-4">
-            <form method="GET" action="department.php">
-                <select name="dept" onchange='this.form.submit()'>
+            <form method="GET" action="employee.php">
+                <select name="emp" onchange='this.form.submit()'>
                     <option selected>Select a name</option>
 
                     <?php
@@ -74,15 +63,14 @@ This file creates the menu option for project and output certan information abou
                     {
                         die( mysqli_connect_error() );
                     }
-                    // Select the department name to display as menu option
-                    $sql = "select Dname, Dnumber from DEPARTMENT";
+                    $sql = "select Lname, Fname, SSN from EMPLOYEE";
                     if ($result = mysqli_query($connection, $sql))
                     {
                         // loop through the data
                         while($row = mysqli_fetch_assoc($result))
                         {
-                            echo '<option value="' . $row['Dnumber'] . '">';
-                            echo $row['Dname'];
+                            echo '<option value="' . $row['SSN'] . '">';
+                            echo $row['Lname']. ', '. $row['Fname'];
                             echo "</option>";
                         }
                         // release the memory used by the result set
@@ -93,7 +81,7 @@ This file creates the menu option for project and output certan information abou
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "GET")
                 {
-                    if (isset($_GET['dept']) )
+                    if (isset($_GET['emp']) )
                     {
                 ?>
                 <p>&nbsp;</p>
@@ -102,8 +90,10 @@ This file creates the menu option for project and output certan information abou
                         <tr class="table-success">
                             <th scope="col">Last Name</th>
                             <th scope="col">First Name</th>
-                            <th scope="col">Supervisor's Last Name</th>
-                            <th scope="col">Supervisor's First Name</th>
+                            <th scope="col">Social Security #</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Birth Date</th>
+                            <th scope="col">Department</th>
                         </tr>
                     </thead>
                     <?php
@@ -111,28 +101,23 @@ This file creates the menu option for project and output certan information abou
                         {
                             die( mysqli_connect_error() );
                         }
-                        // Grab everything when our Dnumber matches and so does department Id. I struggled here
-                        // when i tried setting the GET command to the literal name of the department. I think the issue was
-                        // me not making it a string literal with quotes
                         $sql = "  SELECT *
                             FROM EMPLOYEE, DEPARTMENT
-                            WHERE Dnumber = {$_GET['dept']}  AND
+                            WHERE SSN = {$_GET['emp']} AND
                                   EMPLOYEE.Dno = DEPARTMENT.Dnumber";
 
                         if ($result = mysqli_query($connection, $sql))
                         {
                             while($row = mysqli_fetch_assoc($result))
                             {
-                                $sql2 = "  SELECT * FROM EMPLOYEE WHERE EMPLOYEE.Ssn = {$row['Super_ssn']}";
-                                $result2 = mysqli_query($connection, $sql2);
-                                $row2 = mysqli_fetch_assoc($result2);
-
                     ?>
                     <tr>
                         <td><?php echo $row['Lname'] ?></td>
                         <td><?php echo $row['Fname'] ?></td>
-                        <td><?php echo $row2['Lname'] ?></td>
-                        <td><?php echo $row2['Fname'] ?></td>
+                        <td><?php echo $row['Ssn'] ?></td>
+                        <td><?php echo $row['Salary'] ?></td>
+                        <td><?php echo $row['Bdate'] ?></td>
+                        <td><?php echo $row['Dname'] ?></td>
                     </tr>
                     <?php
                             }

@@ -13,7 +13,7 @@
     <body> 
         <!-- START -- Add HTML code for the top menu section (navigation bar) --> 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
-            <a class="navbar-brand" href="#">PawsN'Play</a>
+            <a class="navbar-brand" href="home.php">PawsN'Play</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria- 
                     controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> 
                 <span class="navbar-toggler-icon"></span> 
@@ -62,7 +62,14 @@
                 </p> 
             <h3 class="display-5">Project Description</h3> 
                 <p>
-                This project was implemented using HTML, PHP, Google Cloud Platform and MySQL. The database consists of X relations including... 
+                This project was implemented using HTML, PHP, Google Cloud Platform and MySQL. The database contains a few different relations such as game_information which
+                includes different piece of information such as the steam link to acces the game, a quick description of the game, and the total number of reviews (split into positive and negative).
+                The genre table includes specific information about the genre since we allow games to hav eup to three different genres. The game table includes information
+                regarding the game like the game title, publisher id, minimum age requierment needed to play and the release date of the game. Platform relation contains
+                information about which OS the game is supported on. Developer relation has two attributes which describes the developers name as well as what country the
+                HQ is in. Country relation contains the country name. The publisher relation specifies the name of the publisher and the country where their HQ is located in.
+                Game_development contains the id of the developer. Lastly, our member relation contains information about the user such as their first name, last name, email,
+                username, password, sal encryption and country id of the user.
                 </p>
 
                 <p>

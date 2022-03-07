@@ -15,7 +15,7 @@
         <!-- START -- Add HTML code for the top menu section (navigation bar) -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">PawsN'Play</a>
+                <a class="navbar-brand" href="home.php">PawsN'Play</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -56,7 +56,7 @@
         <div class="jumbotron">
             <p class="lead">Select an employee's name</p>
             <hr class="my-4">
-            <form method="GET" action="employee.php">
+            <form method="GET" action="feature1.php">
                 <select name="emp" onchange='this.form.submit()'>
                     <option selected>Select a name</option>
 

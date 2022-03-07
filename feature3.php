@@ -36,11 +36,14 @@ This file creates the menu option for project and output certan information abou
                     <li class="nav-item"> 
                         <a class="nav-link" href="feature2.php">Feature 2</a> 
                     </li> 
-                    <li class="nav-item"> 
+                    <li class="nav-item active"> 
                         <a class="nav-link" href="feature3.php">Feature 3</a> 
                     </li> 
-                    <li class="nav-item active"> 
+                    <li class="nav-item"> 
                         <a class="nav-link" href="signup.php">Sign Up!</a> 
+                    </li>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="signin.php">Sign In!</a> 
                     </li>
                 </ul>
                     </ul>

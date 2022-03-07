@@ -42,6 +42,9 @@ This file creates the menu option for project and output certan information abou
                     <li class="nav-item"> 
                         <a class="nav-link" href="signup.php">Sign Up!</a> 
                     </li>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="signin.php">Sign In!</a> 
+                    </li>
                 </ul>
                     </ul>
                     <form class="d-flex">

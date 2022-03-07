@@ -38,6 +38,9 @@
                     <li class="nav-item"> 
                         <a class="nav-link" href="signup.php">Sign Up!</a> 
                     </li>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="signin.php">Sign In!</a> 
+                    </li>
                 </ul> 
                 <form class="form-inline my-2 my-lg-0"> 
                     <input class="form-control mr-sm-2" type="text" placeholder="Search"> 
@@ -58,6 +61,10 @@
                     but with less activites to do (now that we are stuck at home) to help destress from our everyday lives of constant school and work.
                 </p> 
             <h3 class="display-5">Project Description</h3> 
+                <p>
+                This project was implemented using HTML, PHP, Google Cloud Platform and MySQL. The database consists of X relations including... 
+                </p>
+
                 <p>
                     For that reason, we have created this very useful search tool that can help find users games based on different things such as:
                     <ul>

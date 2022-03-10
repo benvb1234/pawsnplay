@@ -36,7 +36,7 @@
                         <a class="nav-link" href="feature3.php">Feature 3</a> 
                     </li> 
                     <li class="nav-item"> 
-                        <a class="nav-link" href="signin.php">Sign In</a> 
+                        <a class="nav-link active" href="signin.php">Sign In</a> 
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0"> 
@@ -50,30 +50,19 @@
             <div class="login">
                 <table cellspacing="2" align="center" cellpadding="8" border="0">
                     <tr>
-                        <td align="right">Enter Name :</td>
-                        <td><input type="text" placeholder="Name" class="tb" /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">Enter Email :</td>
-                        <td><input type="text" placeholder="Email" class="tb" /></td>
-                    </tr>
-                    <tr>
                         <td align="right">Enter Username :</td>
-                        <td><input type="text" placeholder="Username" class="tb" /></td>
+                        <td><input type="username" placeholder="Enter Username here" class="tb" /></td>
                     </tr>
                     <tr>
                         <td align="right">Enter Password :</td>
-                        <td><input type="password" placeholder="Password" class="tb" /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">Confirm Password :</td>
-                        <td><input type="password" placeholder="Password" class="tb" /></td>
+                        <td><input type="password" placeholder="Enter Password here" class="tb" /></td>
                     </tr>
                     <tr>
                         <td></td>
                     <td>
                         <input type="reset" value="Clear Form" id="res" class="btn" />
-                        <input type="submit" value="Create Account" class="btn" /></td>
+                        <input type="submit" value="Sign in" class="btn" />
+                        <a class="button" href="signup.php" role="button">Sign up</a></td>
                     </tr>
                 </table>
             </div>  

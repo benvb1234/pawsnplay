@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Assignment 4 Demo</title>
         <!-- add a reference to the external stylesheet -->
-        <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
+        <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
     </head>
 
     <body>
@@ -37,10 +37,7 @@
                         <a class="nav-link" href="feature3.php">Feature 3</a> 
                     </li> 
                     <li class="nav-item"> 
-                        <a class="nav-link" href="signup.php">Sign Up!</a> 
-                    </li>
-                    <li class="nav-item"> 
-                        <a class="nav-link" href="signin.php">Sign In!</a> 
+                        <a class="nav-link" href="signin.php">Sign In</a> 
                     </li>
                 </ul>
                     </ul>
